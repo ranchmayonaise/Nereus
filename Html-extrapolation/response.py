@@ -23,7 +23,3 @@ def trends_retriever(country_code):
     approximate_traffic = soup.find_all("ht:approx_traffic")
     return {title.text: re.sub("[+,]", "", traffic.text)
             for title, traffic in zip(titles[1:], approximate_traffic)}
-
-if __name__ == "__main__":
-    trends = trends_retriever("US")
-    print(trends)
